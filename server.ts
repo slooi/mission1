@@ -13,7 +13,7 @@ const SchemaGetCarValue = z.object({
 	model: z.string(),
 	year: z.string().refine((stringNumber)=>{
 		const numberOrNan = Number(stringNumber);
-		return !isNaN(numberOrNan) && numberOrNan>0
+		return !isNaN(numberOrNan) && numberOrNan>=0
 	}).transform((stringNumber) => {
 		return Number(stringNumber)
 	}),
