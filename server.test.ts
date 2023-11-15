@@ -78,7 +78,7 @@ describe('Car Value - Positive Tests', () => {
           // console.log(typeof res.body.car_value)
       })		
     });
-    it('Get car value - normal characters and non alphabetical characters ', () => {
+    it('Get car value - normal characters and space ', () => {
       const inputCarModel = "a a"
       const inputCarYear = 0
       const expectedValue = {car_value:200}
