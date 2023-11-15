@@ -9,6 +9,9 @@ describe("determineCarValue",()=>{
 	it("spaces",()=>{
 		expect(determineCarValue("Civ IC",2020)).toBe(6620)
 	})
+	it("alphabetic + nonalphabetic characters",()=>{
+		expect(determineCarValue("a`1232194][",2020)).toBe(2120)
+	})
 	it("model no specified",()=>{
 		expect(()=>determineCarValue("",2020)).toThrow(ERROR_MODEL_NOT_SPECIFIED)
 	})
