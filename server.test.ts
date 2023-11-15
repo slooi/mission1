@@ -13,13 +13,22 @@ describe('Root Route', () => {
 });
 
 describe('Car Value', () => {
-    it('Get car value', () => {
+    function requestGetCarValue(model:any,year:any){
       return request(app)
-        .get("/api/get-car-value?model=Civic&year=2014")
+        .get(`/api/get-car-value?model=${model}&year=${year}`)
+    }
+
+    it('Get car value', () => {
+      const inputCarModel = "civic"
+      const inputCarYear = 2014
+      const expectedValue = {car_value:6614}
+
+      return requestGetCarValue(inputCarModel,inputCarYear)
         .then(res=>{
-            expect(res.status).toBe(200);
-            console.log(res.body)
-        })		
+          expect(res.status).toBe(200);
+          expect(res.body).toEqual(expectedValue)
+          // console.log(typeof res.body.car_value)
+      })		
     });
   });
 // describe("GET /api", () => {

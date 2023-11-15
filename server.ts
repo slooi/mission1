@@ -6,6 +6,7 @@ const PORT = 8080
 
 const app = express()
 app.get("/",(req,res)=>{
+	console.log("reached!")
 	res.send("hi")
 })
 const SchemaGetCarValue = z.object({
@@ -20,13 +21,9 @@ const SchemaGetCarValue = z.object({
 
 app.get("/api/get-car-value",(req,res)=>{
 	try{
-		const result = SchemaGetCarValue.parse(req.query)
-		console.log(result.model)
-		console.log(result.year)
-		console.log(result.model)
-		console.log(result.year)
-		console.log(typeof result.model)
-		console.log(typeof result.year)
+		const validatedQuery = SchemaGetCarValue.parse(req.query)
+		const carValue = determineCarValue(validatedQuery.model,validatedQuery.year)
+		res.json({car_value:carValue})
 	}catch{
 		res.json({error:"there was an error"})
 	}
