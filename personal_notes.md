@@ -1,0 +1,11 @@
+# Install
+npm i -D jest typescript ts-jest @types/jest
+# Createa config
+npx ts-jest config:init
+# Run tests
+npm test 
+
+
+
+# Learnings
+import express from "express" NOT import {express} from "express"
