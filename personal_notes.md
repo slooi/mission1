@@ -9,3 +9,6 @@ npm test
 
 # Learnings
 import express from "express" NOT import {express} from "express"
+
+
+expect(()=>getAlphabetPosition("SS")).toThrow(ERROR_ARGUMENT_LENGTH_NOT_ONE.message)
