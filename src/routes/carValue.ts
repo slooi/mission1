@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 import {z} from "zod"
-import { determineCarValue } from "../functions/determineCarValue";
+import determineCarValue from "../functions/determineCarValue";
 
 const carValueRouter = express.Router()
 
