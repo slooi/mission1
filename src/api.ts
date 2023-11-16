@@ -25,6 +25,8 @@ export function determineCarValue(model:string,year:number):number{
 }
 
 export function getAlphabetPosition(letter:string){
+	// Expects a string with length 1 representing a single alphabet
+	// Returns the position of alphabet (eg: a=>1,A=>1,Z=>26)
 	if (letter.length > 1) throw ERROR_ARGUMENT_LENGTH_NOT_ONE
 
 	const charCode:number = letter.toLowerCase().charCodeAt(0)
