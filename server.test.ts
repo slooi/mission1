@@ -1,7 +1,7 @@
 const request = require('supertest');
 const assert = require("assert")
 
-import app from "./server" // Import your Express app
+import app from "./server" 
 
 
 describe('Root Route', () => {
@@ -14,113 +14,59 @@ describe('Root Route', () => {
   });
 });
 
-describe('Car Value - Positive Tests', () => {
-    function requestGetCarValue(model:any,year:any){
-      return request(app)
-        .get(`/api/get-car-value?model=${encodeURIComponent(model)}&year=${encodeURIComponent(year)}`)
-    }
+describe('Car Value', () => {
+	describe("Positive Tests",()=>{
+		function requestGetCarValue(model:any,year:any,expectedValue:any){
+			return request(app)
+				.get(`/api/get-car-value?model=${encodeURIComponent(model)}&year=${encodeURIComponent(year)}`)
+				.then(res=>{
+					expect(res.body).toEqual(expectedValue)
+				})
+		}
+	
+		it('Get car value normal', () => {
+		  const inputCarModel = "civic"
+		  const inputCarYear = 2014
+		  const expectedValue = {car_value:6614}
+	
+		  return requestGetCarValue(inputCarModel,inputCarYear,expectedValue)
+		});
+		it('Get car value - capital letters', () => {
+		  const inputCarModel = "CIVIC"
+		  const inputCarYear = 2014
+		  const expectedValue = {car_value:6614}
+	
+		  return requestGetCarValue(inputCarModel,inputCarYear,expectedValue)
+		});
+		it('Get car value - capital and lowercase letters', () => {
+		  const inputCarModel = "CivIC"
+		  const inputCarYear = 2014
+		  const expectedValue = {car_value:6614}
+	
+		  return requestGetCarValue(inputCarModel,inputCarYear,expectedValue)
+		});
+		it('Get car value - spaces ', () => {
+		  const inputCarModel = "Civ I C "
+		  const inputCarYear = 2014
+		  const expectedValue = {car_value:6614}
+	
+		  return requestGetCarValue(inputCarModel,inputCarYear,expectedValue)
+		});
+		it('Get car value - normal characters and non alphabetical characters ', () => {
+		  const inputCarModel = "CivIC1ア`~123456"
+		  const inputCarYear = 2014
+		  const expectedValue = {car_value:6614}
+	
+		  return requestGetCarValue(inputCarModel,inputCarYear,expectedValue)
+		});
+		it('Get car value - normal characters and space ', () => {
+		  const inputCarModel = "a a"
+		  const inputCarYear = 0
+		  const expectedValue = {car_value:200}
+	
+		  return requestGetCarValue(inputCarModel,inputCarYear,expectedValue)
+		});
 
-    it('Get car value normal', () => {
-      const inputCarModel = "civic"
-      const inputCarYear = 2014
-      const expectedValue = {car_value:6614}
-
-      return requestGetCarValue(inputCarModel,inputCarYear)
-        .then(res=>{
-          expect(res.status).toBe(200);
-          expect(res.body).toEqual(expectedValue)
-      })		
-    });
-    it('Get car value - capital letters', () => {
-      const inputCarModel = "CIVIC"
-      const inputCarYear = 2014
-      const expectedValue = {car_value:6614}
-
-      return requestGetCarValue(inputCarModel,inputCarYear)
-        .then(res=>{
-          expect(res.status).toBe(200);
-          expect(res.body).toEqual(expectedValue)
-      })		
-    });
-    it('Get car value - capital and lowercase letters', () => {
-      const inputCarModel = "CivIC"
-      const inputCarYear = 2014
-      const expectedValue = {car_value:6614}
-
-      return requestGetCarValue(inputCarModel,inputCarYear)
-        .then(res=>{
-          expect(res.status).toBe(200);
-          expect(res.body).toEqual(expectedValue)
-          // console.log(typeof res.body.car_value)
-      })		
-    });
-    it('Get car value - spaces ', () => {
-      const inputCarModel = "Civ I C "
-      const inputCarYear = 2014
-      const expectedValue = {car_value:6614}
-
-      return requestGetCarValue(inputCarModel,inputCarYear)
-        .then(res=>{
-          expect(res.status).toBe(200);
-          expect(res.body).toEqual(expectedValue)
-          // console.log(typeof res.body.car_value)
-      })		
-    });
-    it('Get car value - normal characters and non alphabetical characters ', () => {
-      const inputCarModel = "CivIC1ア`~123456"
-      const inputCarYear = 2014
-      const expectedValue = {car_value:6614}
-
-      return requestGetCarValue(inputCarModel,inputCarYear)
-        .then(res=>{
-          expect(res.status).toBe(200);
-          expect(res.body).toEqual(expectedValue)
-          // console.log(typeof res.body.car_value)
-      })		
-    });
-    it('Get car value - normal characters and space ', () => {
-      const inputCarModel = "a a"
-      const inputCarYear = 0
-      const expectedValue = {car_value:200}
-
-      return requestGetCarValue(inputCarModel,inputCarYear)
-        .then(res=>{
-          expect(res.status).toBe(200);
-          expect(res.body).toEqual(expectedValue)
-          // console.log(typeof res.body.car_value)
-      })		
-    });
+	})
+    
   });
-// describe("GET /api", () => {
-//     it("should return all products", () => {
-//         return request(app)
-//             .get("/api")
-//             .expect('Content-Type', /json/)
-//             .expect(200)
-//             .then((res) => {
-//                 expect(res.statusCode).toBe(200);
-//             })
-//     });
-// });
-// describe("GET car value",()=>{
-// 	it("positive testing: inputs: civic 2014 should output: 2014",()=>{
-// 		return request(app)
-// 			.get("/api/get-car-value")
-// 			.expect(200)
-// 			.then(response => {
-// 				expect(response.body.test).toBe("hi")
-//                 expect(response.statusCode).toBe(200);
-// 			})
-// 	})
-// })
-// describe("GET car value",()=>{
-// 	it("positive testing: inputs: civic 2014 should output: 2014",()=>{
-// 		return request(app)
-// 			.get("/api/get-car-value2")
-// 			.expect(200)
-// 			.then(response => {
-// 				expect(response.body.test).toBe("hi")
-//                 expect(response.statusCode).toBe(200);
-// 			})
-// 	})
-// })
