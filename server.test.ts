@@ -1,16 +1,17 @@
-const request = require('supertest');
-import app from "./server" // Import your Express app
-const assert = require("assert")
+const request = require("supertest");
+const assert = require("assert");
 
-// describe('Root Route', () => {
-//   it('test basic routing working', () => {
-// 	return request(app)
-// 		.get("/")
-// 		.then(res=>{
-// 			expect(res.status).toBe(200);
-// 		})		
-//   });
-// });
+import app from "./server"; // Import your Express app
+
+describe("Root Route", () => {
+	it("test basic routing working", () => {
+		return request(app)
+			.get("/")
+			.then((res) => {
+				expect(res.status).toBe(200);
+			});
+	});
+});
 
 // describe("GET /api", () => {
 //     it("should return all products", () => {
