@@ -20,3 +20,10 @@ expect(()=>getAlphabetPosition("SS")).toThrow(ERROR_ARGUMENT_LENGTH_NOT_ONE.mess
 
 # Zod notes
 - should refactor 
+
+
+
+
+# Learnings for reviewing other people's code:
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
