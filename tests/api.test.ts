@@ -1,4 +1,4 @@
-import { determineCarValue, getAlphabetPosition, ERROR_ARGUMENT_LENGTH_NOT_ONE, ERROR_MODEL_NOT_SPECIFIED} from "./api";
+import { determineCarValue, getAlphabetPosition, ERROR_ARGUMENT_LENGTH_NOT_ONE, ERROR_MODEL_NOT_SPECIFIED} from "../src/api";
 
 describe("determineCarValue",()=>{
 	it("standard inputs",()=>{
@@ -8,6 +8,9 @@ describe("determineCarValue",()=>{
 	})
 	it("spaces",()=>{
 		expect(determineCarValue("Civ IC",2020)).toBe(6620)
+	})
+	it("alphabetic + nonalphabetic characters",()=>{
+		expect(determineCarValue("a`1232194][",2020)).toBe(2120)
 	})
 	it("model no specified",()=>{
 		expect(()=>determineCarValue("",2020)).toThrow(ERROR_MODEL_NOT_SPECIFIED)
