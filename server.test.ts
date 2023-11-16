@@ -66,7 +66,7 @@ describe('Get Car Value', () => {
 			return requestGetCarValue(inputCarModel, inputCarYear, expectedValue)
 		});
 	})
-	describe("Inappropriate argument(s)", () => {
+	describe("Negative Tests", () => {
 		it('Get car value - normal characters and space', () => {
 			const inputCarModel = ""
 			const inputCarYear = 0
