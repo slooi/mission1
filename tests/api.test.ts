@@ -23,7 +23,7 @@ describe("determineCarValue",()=>{
 
 
 describe("getAlphabetPosition",()=>{
-	it("positive test",()=>{
+	it("standard inputs",()=>{
 		expect(getAlphabetPosition("a")).toBe(1)
 		expect(getAlphabetPosition("A")).toBe(1)
 		expect(getAlphabetPosition("b")).toBe(2)
