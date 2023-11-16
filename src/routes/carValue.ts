@@ -13,8 +13,6 @@ const SchemaGetCarValue = z.object({
 		return Number(stringNumber)
 	}),
 });
-
-
 carValueRouter.get("/get-car-value",(req,res)=>{
 	try{
 		const validatedQuery = SchemaGetCarValue.parse(req.query)
@@ -24,5 +22,7 @@ carValueRouter.get("/get-car-value",(req,res)=>{
 		res.json({error:"there was an error"})
 	}
 })
+
+
 
 export default carValueRouter
