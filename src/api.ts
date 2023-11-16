@@ -20,7 +20,7 @@ export function determineCarValue(model:string,year:number):number{
 	// Add year price
 	carValue += year
 
-	// RETURN
+	// Return
 	return carValue
 }
 
@@ -37,5 +37,6 @@ export function getAlphabetPosition(letter:string){
 		return charCode-96
 	}
 
+	// Return
 	return 0
 }

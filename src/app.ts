@@ -9,11 +9,13 @@ const app = express()
 
 
 // Routes
-
 app.get("/",(req,res)=>{
 	console.log("reached!")
 	res.send("hi")
 })
+
+
+
 const SchemaGetCarValue = z.object({
 	model: z.string(),
 	year: z.string().refine((stringNumber)=>{
@@ -23,7 +25,6 @@ const SchemaGetCarValue = z.object({
 		return Number(stringNumber)
 	}),
 });
-
 app.get("/api/get-car-value",(req,res)=>{
 	try{
 		const validatedQuery = SchemaGetCarValue.parse(req.query)
