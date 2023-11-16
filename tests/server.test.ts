@@ -24,6 +24,7 @@ describe('Get Car Value', () => {
 					expect(res.body).toEqual(expectedValue)
 				})
 		}
+		
 		it('Get car value normal', () => {
 			const inputCarModel = "civic"
 			const inputCarYear = 2014
