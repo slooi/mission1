@@ -1,4 +1,4 @@
-import { determineCarValue, getAlphabetPosition, ERROR_ARGUMENT_LENGTH_NOT_ONE, ERROR_MODEL_NOT_SPECIFIED} from "../src/api";
+import { determineCarValue, getAlphabetPosition, ERROR_ARGUMENT_LENGTH_NOT_ONE, ERROR_MODEL_NOT_SPECIFIED} from "../src/functions/determineCarValue";
 
 describe("determineCarValue",()=>{
 	it("standard inputs",()=>{
