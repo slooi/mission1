@@ -6,9 +6,17 @@ npx ts-jest config:init
 npm test 
 
 
-
 # Learnings
 import express from "express" NOT import {express} from "express"
 
-
 expect(()=>getAlphabetPosition("SS")).toThrow(ERROR_ARGUMENT_LENGTH_NOT_ONE.message)
+
+
+# Positive testing
+- test what we expect users SHOULD do
+# Negative testing
+- test what we expect users SHOULDN'T do
+
+
+# Zod notes
+- should refactor 
