@@ -26,6 +26,10 @@ export default function determineCarValue(model:string,year:number):number{
 	return carValue
 }
 
+
+// ########################################
+//      		HELPER FUNCTIONS
+// ########################################
 export function getAlphabetPosition(letter:string){
 	// Expects a string with length 1 representing a single alphabet
 	// Returns the position of alphabet (eg: a=>1,A=>1,Z=>26)
