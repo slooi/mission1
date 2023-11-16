@@ -2,6 +2,8 @@ export const ERROR_ARGUMENT_LENGTH_NOT_ONE = new Error("An argument with length 
 export const ERROR_MODEL_NOT_SPECIFIED = new Error("No model was specified!")
 export const ERROR_NEGATIVE_YEAR = new Error("Negative years are NOT accepted.")
 
+
+
 export function determineCarValue(model:string,year:number):number{
 	if (model.length === 0){
 		throw ERROR_MODEL_NOT_SPECIFIED
