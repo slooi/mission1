@@ -20,6 +20,7 @@ describe('Get Car Value', () => {
 			return request(app)
 				.get(`/api/get-car-value?model=${encodeURIComponent(model)}&year=${encodeURIComponent(year)}`)
 				.then(res => {
+					expect(res.status).toBe(200);
 					expect(res.body).toEqual(expectedValue)
 				})
 		}
