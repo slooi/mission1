@@ -2,9 +2,14 @@ import express from "express"
 import {determineCarValue} from "./api"
 import {z} from "zod"
 
-const PORT = 8080
-
 const app = express()
+
+
+// Middleware
+
+
+// Routes
+
 app.get("/",(req,res)=>{
 	console.log("reached!")
 	res.send("hi")
@@ -27,11 +32,6 @@ app.get("/api/get-car-value",(req,res)=>{
 	}catch{
 		res.json({error:"there was an error"})
 	}
-})
-
-
-app.listen(PORT,()=>{
-	console.log("Listening on port "+PORT)
 })
 
 export default app
