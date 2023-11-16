@@ -1,7 +1,7 @@
 const request = require('supertest');
 const assert = require("assert")
 
-import app from "./server"
+import app from "../src/server"
 
 
 describe('Root Route', () => {
