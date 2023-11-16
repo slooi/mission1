@@ -29,12 +29,6 @@ app.get("/api/get-car-value",(req,res)=>{
 	}
 })
 
-// app.get("/api",(req,res)=>{
-// 	res.json({test:"hi"})
-// })
-// app.get("/api/get-car-value2",(req,res)=>{
-// 	res.json({test:"hi",test2:"hi"})
-// })
 
 app.listen(PORT,()=>{
 	console.log("Listening on port "+PORT)
