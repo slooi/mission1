@@ -8,7 +8,7 @@ describe('Root Route', () => {
 	it('test basic routing working', () => {
 		return request(app)
 			.get("/")
-			.then(res => {
+			.then((res: { status: any; }) => {
 				expect(res.status).toBe(200);
 			})
 	});
@@ -19,7 +19,7 @@ describe('Get Car Value', () => {
 		function requestGetCarValue(model: any, year: any, expectedValue: any) {
 			return request(app)
 				.get(`/api/get-car-value?model=${encodeURIComponent(model)}&year=${encodeURIComponent(year)}`)
-				.then(res => {
+				.then((res: { status: any; body: any; }) => {
 					expect(res.status).toBe(200);
 					expect(res.body).toEqual(expectedValue)
 				})
@@ -75,7 +75,7 @@ describe('Get Car Value', () => {
 
 			return request(app)
 				.get(`/api/get-car-value?model=${encodeURIComponent(inputCarModel)}&year=${encodeURIComponent(inputCarYear)}`)
-				.then(res => {
+				.then((res: { body: { error: any; }; }) => {
 					expect(res.body.error).toBeTruthy()
 				})
 		});
@@ -86,7 +86,7 @@ describe('Get Car Value', () => {
 
 			return request(app)
 				.get(`/api/get-car-value?model=${encodeURIComponent(inputCarModel)}&year=${encodeURIComponent(inputCarYear)}&food="pie"`)
-				.then(res => {
+				.then((res: { body: any; }) => {
 					expect(res.body).toEqual(expectedValue)
 				})
 		});
@@ -95,7 +95,7 @@ describe('Get Car Value', () => {
 
 			return request(app)
 				.get(`/api/get-car-value?model=${encodeURIComponent(inputCarModel)}`)
-				.then(res => {
+				.then((res: { body: { error: any; }; }) => {
 					expect(res.body.error).toBeTruthy()
 				})
 		});		
@@ -105,7 +105,7 @@ describe('Get Car Value', () => {
 
 			return request(app)
 				.get(`/api/get-car-value?model=${encodeURIComponent(inputCarModel)}&year=${encodeURIComponent(inputCarYear)}&food="pie"`)
-				.then(res => {
+				.then((res: { body: { error: any; }; }) => {
 					expect(res.body.error).toBeTruthy()
 				})
 		});

@@ -5,7 +5,7 @@ import determineCarValue from "../functions/determineCarValue";
 const carValueRouter = express.Router()
 
 const SchemaGetCarValue = z.object({
-	model: z.string(),
+	model: z.string().min(1),
 	year: z.string()
 	.refine((stringNumber)=>{
 		const numberOrNan = Number(stringNumber);
