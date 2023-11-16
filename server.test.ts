@@ -14,7 +14,7 @@ describe('Root Route', () => {
   });
 });
 
-describe('Car Value', () => {
+describe('Get Car Value', () => {
 	describe("Positive Tests",()=>{
 		function requestGetCarValue(model:any,year:any,expectedValue:any){
 			return request(app)
@@ -66,7 +66,6 @@ describe('Car Value', () => {
 	
 		  return requestGetCarValue(inputCarModel,inputCarYear,expectedValue)
 		});
-
 	})
     
-  });
+});
