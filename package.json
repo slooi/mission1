@@ -17,7 +17,7 @@
   "version": "1.0.0",
   "main": "jest.config.js",
   "scripts": {
-    "test": "jest --watchAll --verbose --maxParallel=2"
+    "test": "jest --watchAll --verbose --runInBand"
   },
   "keywords": [],
   "author": "",
