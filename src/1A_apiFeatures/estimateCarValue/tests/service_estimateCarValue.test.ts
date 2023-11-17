@@ -1,4 +1,4 @@
-import estimateCarValue, {getAlphabetPosition, ERROR_ARGUMENT_LENGTH_NOT_ONE, ERROR_MODEL_NOT_SPECIFIED} from "../service_estimateCarValue";
+import estimateCarValue, {getAlphabetPosition} from "../service_estimateCarValue";
 
 describe("estimateCarValue",()=>{
 	it("standard inputs",()=>{

@@ -1,18 +1,17 @@
 import t_estimateCarValue from "./type_estimateCarValue"
-
-export const ERROR_ARGUMENT_LENGTH_NOT_ONE = new Error("An argument with length > 1 was used as a parameter! This is NOT allowed!")
-export const ERROR_MODEL_NOT_SPECIFIED = new Error("No model was specified!")
-export const ERROR_NEGATIVE_YEAR = new Error("Negative years are NOT accepted.")
+import v_estimateCarValue from "./validator_estimateCarValue"
 
 
 
-export default function determineCarValue({model,year}:t_estimateCarValue):number{
-	if (model.length === 0){
-		throw ERROR_MODEL_NOT_SPECIFIED
-	}
-	if (year<0){
-		throw ERROR_NEGATIVE_YEAR
-	}
+export default function determineCarValue(estimateCarValueInput:t_estimateCarValue):number{
+	const {model,year}=v_estimateCarValue.parse(estimateCarValueInput)
+
+	// if (model.length === 0){
+	// 	throw ERROR_MODEL_NOT_SPECIFIED
+	// }
+	// if (year<0){
+	// 	throw ERROR_NEGATIVE_YEAR
+	// }
 
 	let carValue:number = 0
 
