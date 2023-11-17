@@ -21,14 +21,4 @@ const estimateCarValue = (estimateCarValueInput:t_estimateCarValue):number=>{
 	return carValue
 }
 
-// ########################################
-//      		HELPER FUNCTIONS
-// ########################################
-
-
-
 export default estimateCarValue
-
-function getAlphabetPosition(arg0: string) {
-	throw new Error("Function not implemented.")
-}
