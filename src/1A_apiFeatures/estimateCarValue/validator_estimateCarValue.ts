@@ -12,12 +12,12 @@ const v_estimateCarValue = z.object({
 		},{message:ERROR_CANT_PARSE_TO_NUMBER})
 		.transform((stringNumber) => {
 			return Number(stringNumber)
-		})
-		.refine((number)=>{
-			return number>=0
-		},{message:ERROR_NEGATIVE_YEAR}),
+		}),
 		z.number()
-	]),
+	])
+	.refine((number)=>{
+		return number>=0
+	},{message:ERROR_NEGATIVE_YEAR}),
 });
 
 export default v_estimateCarValue
