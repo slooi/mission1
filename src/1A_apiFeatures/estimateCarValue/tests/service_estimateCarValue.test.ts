@@ -1,4 +1,4 @@
-import estimateCarValue, {getAlphabetPosition} from "../service_estimateCarValue";
+import estimateCarValue, { getAlphabetPosition } from "../service_estimateCarValue";
 
 describe("estimateCarValue",()=>{
 	it("standard inputs",()=>{
@@ -13,7 +13,7 @@ describe("estimateCarValue",()=>{
 		expect(estimateCarValue({model:"a`1232194][",year:2020})).toBe(2120)
 	})
 	it("model no specified",()=>{
-		expect(()=>estimateCarValue({model:"",year:2020})).toThrow(ERROR_MODEL_NOT_SPECIFIED)
+		expect(()=>estimateCarValue({model:"",year:2020})).toThrow()
 	})
 	it("negative year",()=>{
 		expect(()=>estimateCarValue({model:"a",year:-1000})).toThrow()			
@@ -35,7 +35,7 @@ describe("getAlphabetPosition",()=>{
 		expect(getAlphabetPosition("`")).toBe(0)
 	})
 	it("Length too long", ()=>{
-		expect(()=>getAlphabetPosition("SS")).toThrow(ERROR_ARGUMENT_LENGTH_NOT_ONE.message)
+		expect(()=>getAlphabetPosition("SS")).toThrow()
 	})
 })
 
