@@ -1,5 +1,5 @@
 import express from "express"
-import carValue from "./routes/carValue"
+import r_api from "./routes/r_api"
 
 const app = express()
 
@@ -13,7 +13,7 @@ app.get("/",(req,res)=>{
 	res.send("hi this is / route")
 })
 
-app.use("/api/",carValue)
+app.use("/api",r_api)
 
 
 

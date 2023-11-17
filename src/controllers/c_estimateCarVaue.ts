@@ -1,8 +1,7 @@
-import express from "express";
+import express, {Request, Response} from "express";
 import {z} from "zod"
 import determineCarValue from "../services/determineCarValue";
 
-const carValueRouter = express.Router()
 
 const SchemaGetCarValue = z.object({
 	model: z.string().min(1),
@@ -15,7 +14,7 @@ const SchemaGetCarValue = z.object({
 	}),
 });
 
-carValueRouter.get("/get-car-value",(req,res)=>{
+const c_EstimateCarValue = (req:Request,res:Response)=>{
 	try{
 		const validatedQuery = SchemaGetCarValue.parse(req.query)
 		const carValue = determineCarValue(validatedQuery.model,validatedQuery.year)
@@ -23,8 +22,7 @@ carValueRouter.get("/get-car-value",(req,res)=>{
 	}catch{
 		res.json({error:"there was an error"})
 	}
-})
+}
 
 
-
-export default carValueRouter
+export default c_EstimateCarValue

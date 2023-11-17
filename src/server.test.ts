@@ -1,7 +1,6 @@
 const request = require('supertest');
-const assert = require("assert")
 
-import app from "../src/app"
+import app from "./app"
 
 
 describe('Root Route', () => {
@@ -18,7 +17,7 @@ describe('Get Car Value', () => {
 	describe("Positive Tests", () => {
 		function requestGetCarValue(model: any, year: any, expectedValue: any) {
 			return request(app)
-				.get(`/api/get-car-value?model=${encodeURIComponent(model)}&year=${encodeURIComponent(year)}`)
+				.get(`/api/estimate-car-value?model=${encodeURIComponent(model)}&year=${encodeURIComponent(year)}`)
 				.then((res: { status: any; body: any; }) => {
 					expect(res.status).toBe(200);
 					expect(res.body).toEqual(expectedValue)
@@ -74,7 +73,7 @@ describe('Get Car Value', () => {
 			const inputCarYear = 0
 
 			return request(app)
-				.get(`/api/get-car-value?model=${encodeURIComponent(inputCarModel)}&year=${encodeURIComponent(inputCarYear)}`)
+				.get(`/api/estimate-car-value?model=${encodeURIComponent(inputCarModel)}&year=${encodeURIComponent(inputCarYear)}`)
 				.then((res: { body: { error: any; }; }) => {
 					expect(res.body.error).toBeTruthy()
 				})
@@ -85,7 +84,7 @@ describe('Get Car Value', () => {
 			const expectedValue = { car_value: 200 }
 
 			return request(app)
-				.get(`/api/get-car-value?model=${encodeURIComponent(inputCarModel)}&year=${encodeURIComponent(inputCarYear)}&food="pie"`)
+				.get(`/api/estimate-car-value?model=${encodeURIComponent(inputCarModel)}&year=${encodeURIComponent(inputCarYear)}&food="pie"`)
 				.then((res: { body: any; }) => {
 					expect(res.body).toEqual(expectedValue)
 				})
@@ -94,7 +93,7 @@ describe('Get Car Value', () => {
 			const inputCarModel = "a a"
 
 			return request(app)
-				.get(`/api/get-car-value?model=${encodeURIComponent(inputCarModel)}`)
+				.get(`/api/estimate-car-value?model=${encodeURIComponent(inputCarModel)}`)
 				.then((res: { body: { error: any; }; }) => {
 					expect(res.body.error).toBeTruthy()
 				})
@@ -104,7 +103,7 @@ describe('Get Car Value', () => {
 			const inputCarYear = -20000
 
 			return request(app)
-				.get(`/api/get-car-value?model=${encodeURIComponent(inputCarModel)}&year=${encodeURIComponent(inputCarYear)}&food="pie"`)
+				.get(`/api/estimate-car-value?model=${encodeURIComponent(inputCarModel)}&year=${encodeURIComponent(inputCarYear)}&food="pie"`)
 				.then((res: { body: { error: any; }; }) => {
 					expect(res.body.error).toBeTruthy()
 				})
