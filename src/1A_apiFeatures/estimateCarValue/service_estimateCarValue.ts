@@ -1,3 +1,4 @@
+import s_getAlphabetPosition from "./helpers/service_getAlphabetPosition"
 import t_estimateCarValue from "./type_estimateCarValue"
 import v_estimateCarValue from "./validator_estimateCarValue"
 
@@ -10,7 +11,7 @@ const estimateCarValue = (estimateCarValueInput:t_estimateCarValue):number=>{
 
 	// Calculate car value from alphabet position
 	for(let i=0;i<model.length;i++){
-		carValue += getAlphabetPosition(model[i]) * 100
+		carValue += s_getAlphabetPosition(model[i]) * 100
 	}
 
 	// Add year price
@@ -23,25 +24,11 @@ const estimateCarValue = (estimateCarValueInput:t_estimateCarValue):number=>{
 // ########################################
 //      		HELPER FUNCTIONS
 // ########################################
-const getAlphabetPosition = (letter:string)=>{
-	// Expects a string with length 1 representing a single alphabet
-	// Returns the position of alphabet (eg: a=>1,A=>1,Z=>26)
-
-	// Check
-	if (letter.length > 1) throw new Error("ERROR_ARGUMENT_LENGTH_NOT_ONE")
-
-	// Determine position of alphabet
-	const charCode:number = letter.toLowerCase().charCodeAt(0)
-	if (charCode >= 97 && charCode <= 97+25){
-		return charCode-96
-	}
-
-	// Return
-	return 0
-}
-
 
 
 
 export default estimateCarValue
-export {getAlphabetPosition}
+
+function getAlphabetPosition(arg0: string) {
+	throw new Error("Function not implemented.")
+}

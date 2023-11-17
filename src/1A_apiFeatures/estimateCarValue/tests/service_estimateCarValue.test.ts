@@ -1,4 +1,4 @@
-import estimateCarValue, { getAlphabetPosition } from "../service_estimateCarValue";
+import estimateCarValue from "../service_estimateCarValue";
 
 describe("estimateCarValue",()=>{
 	it("standard inputs",()=>{
@@ -21,23 +21,6 @@ describe("estimateCarValue",()=>{
 })
 
 
-
-describe("getAlphabetPosition",()=>{
-	it("standard inputs",()=>{
-		expect(getAlphabetPosition("a")).toBe(1)
-		expect(getAlphabetPosition("A")).toBe(1)
-		expect(getAlphabetPosition("b")).toBe(2)
-		expect(getAlphabetPosition("z")).toBe(26)
-		expect(getAlphabetPosition("Z")).toBe(26)
-	})
-	it("non-ascii should be ignored",()=>{
-		expect(getAlphabetPosition("ア")).toBe(0)
-		expect(getAlphabetPosition("`")).toBe(0)
-	})
-	it("Length too long", ()=>{
-		expect(()=>getAlphabetPosition("SS")).toThrow()
-	})
-})
 
 
 /* 
