@@ -1,4 +1,4 @@
-import determineCarValue, {getAlphabetPosition, ERROR_ARGUMENT_LENGTH_NOT_ONE, ERROR_MODEL_NOT_SPECIFIED} from "../src/services/determineCarValue";
+import determineCarValue, {getAlphabetPosition, ERROR_ARGUMENT_LENGTH_NOT_ONE, ERROR_MODEL_NOT_SPECIFIED} from "./s_estimateCarValue";
 
 describe("determineCarValue",()=>{
 	it("standard inputs",()=>{

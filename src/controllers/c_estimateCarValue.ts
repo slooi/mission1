@@ -1,6 +1,6 @@
 import express, {Request, Response} from "express";
 import {z} from "zod"
-import determineCarValue from "../services/determineCarValue";
+import determineCarValue from "../services/s_estimateCarValue";
 
 
 const SchemaGetCarValue = z.object({
