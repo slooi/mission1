@@ -1,22 +1,22 @@
-import determineCarValue, {getAlphabetPosition, ERROR_ARGUMENT_LENGTH_NOT_ONE, ERROR_MODEL_NOT_SPECIFIED} from "./s_estimateCarValue";
+import estimateCarValue, {getAlphabetPosition, ERROR_ARGUMENT_LENGTH_NOT_ONE, ERROR_MODEL_NOT_SPECIFIED} from "../service_estimateCarValue";
 
-describe("determineCarValue",()=>{
+describe("estimateCarValue",()=>{
 	it("standard inputs",()=>{
-		expect(determineCarValue("civic",2014)).toBe(6614)
-		expect(determineCarValue("CivIC",2014)).toBe(6614)
-		expect(determineCarValue("CivIC",2020)).toBe(6620)
+		expect(estimateCarValue({model:"civic",year:2014})).toBe(6614)
+		expect(estimateCarValue({model:"CivIC",year:2014})).toBe(6614)
+		expect(estimateCarValue({model:"CivIC",year:2020})).toBe(6620)
 	})
 	it("spaces",()=>{
-		expect(determineCarValue("Civ IC",2020)).toBe(6620)
+		expect(estimateCarValue({model:"Civ IC",year:2020})).toBe(6620)
 	})
 	it("alphabetic + nonalphabetic characters",()=>{
-		expect(determineCarValue("a`1232194][",2020)).toBe(2120)
+		expect(estimateCarValue({model:"a`1232194][",year:2020})).toBe(2120)
 	})
 	it("model no specified",()=>{
-		expect(()=>determineCarValue("",2020)).toThrow(ERROR_MODEL_NOT_SPECIFIED)
+		expect(()=>estimateCarValue({model:"",year:2020})).toThrow(ERROR_MODEL_NOT_SPECIFIED)
 	})
 	it("negative year",()=>{
-		expect(()=>determineCarValue("a",-1000)).toThrow()			
+		expect(()=>estimateCarValue({model:"a",year:-1000})).toThrow()			
 	})
 })
 
