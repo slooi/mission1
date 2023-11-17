@@ -3,7 +3,7 @@ import v_estimateCarValue from "./validator_estimateCarValue"
 
 
 
-export default function determineCarValue(estimateCarValueInput:t_estimateCarValue):number{
+const estimateCarValue = (estimateCarValueInput:t_estimateCarValue):number=>{
 	const {model,year}=v_estimateCarValue.parse(estimateCarValueInput)
 
 	let carValue:number = 0
@@ -20,11 +20,10 @@ export default function determineCarValue(estimateCarValueInput:t_estimateCarVal
 	return carValue
 }
 
-
 // ########################################
 //      		HELPER FUNCTIONS
 // ########################################
-export function getAlphabetPosition(letter:string){
+const getAlphabetPosition = (letter:string)=>{
 	// Expects a string with length 1 representing a single alphabet
 	// Returns the position of alphabet (eg: a=>1,A=>1,Z=>26)
 
@@ -40,3 +39,9 @@ export function getAlphabetPosition(letter:string){
 	// Return
 	return 0
 }
+
+
+
+
+export default estimateCarValue
+export {getAlphabetPosition}
