@@ -5,7 +5,10 @@ import v_estimateCarValue from "../2_features/estimateCarValue/validator_estimat
 
 const c_EstimateCarValue = (req:Request,res:Response)=>{
 	try{
+		// Validate unsafe input
 		const validatedQuery = v_estimateCarValue.parse(req.query)
+
+		// 
 		const carValue = s_estimateCarValue(validatedQuery)
 		res.json({car_value:carValue})
 	}catch{
