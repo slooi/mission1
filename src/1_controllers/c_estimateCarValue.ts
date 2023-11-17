@@ -1,6 +1,6 @@
 import {Request, Response} from "express";
-import s_estimateCarValue from "../services/s_estimateCarValue";
-import v_estimateCarValue from "../validators/v_estimateCarValue";
+import s_estimateCarValue from "../2_services/s_estimateCarValue";
+import v_estimateCarValue from "../2_validators/v_estimateCarValue";
 
 
 const c_EstimateCarValue = (req:Request,res:Response)=>{
