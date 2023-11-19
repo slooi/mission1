@@ -50,7 +50,7 @@ Yearly premium is calculated by car_value multiplied by driver rating divided by
 - NodeJS - Javascript Runtime Environment
 - ExpressJS - Web Application Framework
 - Typescript - Type safety
-- Zod - Runtime type checker & duplicate type declaration remover
+- Zod - Runtime type checker & removes duplicate type declaration
 - ts-node - JIT Typescript to Javascript node server
 - Jest - Testing framework
 - SuperTest - Tests http requests
